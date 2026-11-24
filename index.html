@@ -87,7 +87,7 @@ footer{background:var(--ink);color:#c7d4ef;padding:36px 0;font-size:14px}footer 
  <div class="bld">
   <div><div class="tabs"><button class="tab on" data-v="front">Спереду</button><button class="tab" data-v="back">Ззаду</button></div>
    <div class="stage" id="stage">
-    <div id="box" style="position:relative"><svg viewBox="0 0 300 450" id="kit" style="color:#fff">
+    <div id="box" style="position:relative"><svg viewBox="-40 0 380 450" id="kit" style="color:#fff">
 <defs>
 <path id="bp" d="M108 16 L42 40 Q22 50 8 112 L50 134 Q60 112 70 100 L72 322 Q150 332 228 322 L230 100 Q240 112 250 134 L292 112 Q278 50 258 40 L192 16 Q150 52 108 16Z"/>
 <path id="sp" d="M78 312 H222 L240 438 Q202 448 166 436 L150 382 L134 436 Q98 448 60 438Z"/>
@@ -116,9 +116,9 @@ footer{background:var(--ink);color:#c7d4ef;padding:36px 0;font-size:14px}footer 
 <g id="cB" style="display:none" fill="none" stroke-linecap="round"><path d="M118 15 Q150 30 182 15 Q150 22 118 15Z" fill="#0b1b3a" fill-opacity=".6"/><path d="M109 16 Q150 34 191 16" stroke="currentColor" stroke-width="7"/><path d="M116 20 Q150 36 184 20" stroke="#000" stroke-opacity=".22" stroke-width="1.6"/></g>
 <g id="frontG" fill="currentColor"><path transform="translate(104 66)" d="M-9 0 L10 -8 Q7 4 -4 9 Q-12 13 -17 9 L-9 5 Q-3 4 0 -1Z"/><path d="M180 55 h20 v14 q0 9 -10 13 q-10 -4 -10 -13z" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="190" cy="66" r="3.5"/></g>
 <g id="frontT" text-anchor="middle" fill="currentColor"><text id="spT" x="150" y="124" font-size="13" font-weight="800" font-family="Montserrat"></text></g>
-<g id="backT" text-anchor="middle" fill="currentColor" style="display:none"><text x="150" y="54" font-size="10" font-weight="800" letter-spacing="2" font-family="Montserrat">СЛАВА УКРАЇНІ</text><text id="nmT" x="150" y="86" font-size="22" font-family="Oswald"></text><text id="nuT" x="150" y="196" font-size="112" font-family="Oswald"></text></g>
+<g id="backT" text-anchor="middle" fill="currentColor" style="display:none"><text id="tpT" x="150" y="54" font-size="10" font-weight="800" letter-spacing="2" font-family="Montserrat">СЛАВА УКРАЇНІ</text><text id="nmT" x="150" y="86" font-size="22" font-family="Oswald"></text><text id="nuT" x="150" y="196" font-size="112" font-family="Oswald"></text></g>
 <text id="shN" x="200" y="402" text-anchor="middle" font-size="24" font-family="Oswald" fill="currentColor">7</text>
-</svg></div>
+<g id="ln" pointer-events="none"></g></svg></div>
    </div></div>
   <div>
    <div class="info" id="info"><b>Наведіть на точку</b><p>Тут з'явиться опис місця нанесення.</p></div>
@@ -137,15 +137,14 @@ footer{background:var(--ink);color:#c7d4ef;padding:36px 0;font-size:14px}footer 
 <section id="catalog"><div class="wrap">
  <h2>Каталог Joma Teamwear 2026</h2><p class="lead">Обирайте розділ — каталог відкриється на потрібній сторінці. Артикули та кольори вказані під кожною моделлю.</p>
  <div class="chips" id="catChips"></div>
- <div class="row"><button class="btn" onclick="openPdf('catalog')">Переглянути на сайті</button><a class="btn o" href="catalog.pdf" download>Завантажити PDF</a></div>
- <div class="pdf" id="pdf-catalog" style="margin-top:20px"><iframe title="Каталог Joma" loading="lazy"></iframe></div>
+ <div class="row"><a class="btn" href="catalog.pdf" target="_blank" rel="noopener">Відкрити в новій вкладці</a><a class="btn o" href="catalog.pdf" download>Завантажити PDF</a></div>
+ <div class="pdf" id="pdf-catalog" style="margin-top:20px"></div>
 </div></section>
 
 <section id="fonts" class="alt"><div class="wrap">
  <h2>Шрифти для нанесення</h2><p class="lead">60 шрифтів: стилі збірних, клубів, ліг і класика з кирилицею. Запам'ятайте номер шрифту й вкажіть його в заявці.</p>
- <div class="chips" id="fontChips"></div>
- <div class="row"><button class="btn" onclick="openPdf('fonts')">Переглянути на сайті</button><a class="btn o" href="fonts.pdf" download>Завантажити PDF</a></div>
- <div class="pdf" id="pdf-fonts" style="margin-top:20px"><iframe title="Шрифти" loading="lazy"></iframe></div>
+ <div class="row"><a class="btn" href="fonts.pdf" target="_blank" rel="noopener">Відкрити в новій вкладці</a><a class="btn o" href="fonts.pdf" download>Завантажити PDF</a></div>
+ <div class="pdf" id="pdf-fonts" style="margin-top:20px"></div>
  <p class="note">Кирилицю (українські прізвища) підтримують шрифти №36–45 «Classic». Для решти уточнюйте у менеджера.</p>
 </div></section>
 
@@ -177,24 +176,24 @@ const CAT=[["Ігрова форма",2],["Гетри та воротарі",7],
 const FNT=[["NEW 2025",10],["NEW 2024",1],["Збірні",3],["Клуби",5],["Бренди / ліги",7],["Classic (кирилиця)",8],["Фото робіт",13]];
 const SPOTS={
  front:[
-  {n:1,x:190,y:66,t:"Логотип клубу",d:"Термотрансфер або шеврон на грудях. Повний колір, висока деталізація."},
-  {n:2,x:150,y:120,t:"Спонсор на грудях",d:"Центр грудей: монохром або повний колір, розмір за погодженням."},
-  {n:3,x:271,y:88,t:"Рукав",d:"Малий логотип, прапор чи ініціали на рукаві."},
-  {n:4,x:200,y:398,t:"Номер на шортах",d:"Номер гравця на штанині шортів."}],
+  {n:1,tx:203,ty:66,side:"R",by:36,t:"Логотип клубу",d:"Термотрансфер або шеврон на грудях. Повний колір, висока деталізація."},
+  {n:2,el:"#spT",side:"L",by:132,t:"Спонсор на грудях",d:"Центр грудей: монохром або повний колір, розмір за погодженням."},
+  {n:3,tx:272,ty:90,side:"R",by:104,t:"Рукав",d:"Малий логотип, прапор чи ініціали на рукаві."},
+  {n:4,tx:222,ty:398,side:"R",by:398,t:"Номер на шортах",d:"Номер гравця на штанині шортів."}],
  back:[
-  {n:1,x:150,y:50,t:"Напис над прізвищем",d:"Назва клубу, девіз або «Слава Україні» над прізвищем."},
-  {n:2,x:150,y:82,t:"Прізвище",d:"Кирилиця та латиниця — залежно від обраного шрифту."},
-  {n:3,x:150,y:150,t:"Великий номер",d:"Головний елемент нанесення. Шрифт обирайте у каталозі (1–60)."},
-  {n:4,x:200,y:398,t:"Номер на шортах",d:"Номер гравця на штанині шортів."}]
+  {n:1,el:"#tpT",side:"L",by:40,t:"Напис над прізвищем",d:"Назва клубу, девіз або «Слава Україні» над прізвищем."},
+  {n:2,el:"#nmT",side:"R",by:84,t:"Прізвище",d:"Кирилиця та латиниця — залежно від обраного шрифту."},
+  {n:3,el:"#nuT",side:"L",by:150,t:"Великий номер",d:"Головний елемент нанесення. Шрифт обирайте у каталозі (1–60)."},
+  {n:4,tx:222,ty:398,side:"R",by:398,t:"Номер на шортах",d:"Номер гравця на штанині шортів."}]
 };
 /* ======================================== */
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
 $("#tiers").innerHTML=TIERS.map(x=>`<div class="card ${x.hl?'hl':''}"><div class="pct">−${x.p}</div><h3>${x.t}</h3><p style="color:var(--mut);font-size:14px">${x.d}</p><ul>${x.l.map(i=>`<li>${i}</li>`).join("")}</ul></div>`).join("");
 // chips
 const mk=(id,arr,f)=>$(id).innerHTML=arr.map(a=>`<button class="chip" data-f="${f}" data-p="${a[1]}">${a[0]}</button>`).join("");
-mk("#catChips",CAT,"catalog");mk("#fontChips",FNT,"fonts");
+mk("#catChips",CAT,"catalog");
 document.addEventListener("click",e=>{const c=e.target.closest(".chip");if(c){$$(`.chip[data-f="${c.dataset.f}"]`).forEach(x=>x.classList.remove("on"));c.classList.add("on");openPdf(c.dataset.f,c.dataset.p)}});
-function openPdf(f,p){const box=$("#pdf-"+f);box.classList.add("show");box.querySelector("iframe").src=f+".pdf#page="+(p||1)+"&view=FitH"}
+function openPdf(f,p){const box=$("#pdf-"+f);box.classList.add("show");const i=document.createElement("iframe");i.title=f;i.loading="lazy";i.src=f+".pdf#page="+(p||1)+"&view=FitH&navpanes=0&pagemode=none";box.replaceChildren(i)}
 // builder
 let view="front";const col={"#1668e3":"#fff","#ffffff":"#0a3d9c","#d62839":"#fff","#ffcc00":"#0b1b3a","#111827":"#fff","#1fa35b":"#fff"};
 $("#sw").innerHTML=Object.keys(col).map((c,i)=>`<i style="background:${c}" data-c="${c}" class="${i?'':'on'}"></i>`).join("");
@@ -202,14 +201,19 @@ let ink="#fff";
 function paint(){$("#kit").style.color=ink}
 $("#sw").onclick=e=>{const c=e.target.dataset.c;if(!c)return;$$("#sw i").forEach(i=>i.classList.remove("on"));e.target.classList.add("on");$("#body").setAttribute("fill",c);$("#sf").setAttribute("fill",c);ink=col[c];paint()};
 function txt(){const f=$("#inFont").value;$("#nmT").textContent=$("#inName").value.toUpperCase();$("#nuT").textContent=$("#inNum").value;$("#shN").textContent=$("#inNum").value;$("#spT").textContent=$("#inSp").value.toUpperCase();["#nmT","#nuT","#shN"].forEach(s=>$(s).style.fontFamily=`'${f}',sans-serif`);const n=$("#nmT");n.setAttribute("font-size",Math.max(12,Math.min(24,200/Math.max(6,n.textContent.length)*1.7)))}
-["#inName","#inNum","#inSp","#inFont"].forEach(s=>$(s).addEventListener("input",txt));
-function draw(){$$(".hs").forEach(h=>h.remove());$("#frontG").style.display=$("#frontT").style.display=view==="front"?"":"none";$("#backT").style.display=view==="back"?"":"none";$("#cF").style.display=$("#hF").style.display=view==="front"?"":"none";$("#cB").style.display=view==="back"?"":"none";
- SPOTS[view].forEach(s=>{const h=document.createElement("button");h.className="hs";h.textContent=s.n;h.setAttribute("aria-label",s.t);
-  h.style.left=(s.x/3)+"%";h.style.top=(s.y/4.5)+"%";
-  const show=()=>{$$(".hs").forEach(x=>x.classList.remove("on"));h.classList.add("on");$("#info").innerHTML=`<b>${s.n}. ${s.t}</b><p>${s.d}</p>`};
-  h.onmouseenter=h.onclick=h.onfocus=show;$("#box").appendChild(h)})}
+["#inName","#inNum","#inSp","#inFont"].forEach(s=>$(s).addEventListener("input",()=>{txt();draw()}));
+function draw(){$$(".hs").forEach(h=>h.remove());const F=view==="front";
+$("#frontG").style.display=$("#frontT").style.display=F?"":"none";$("#backT").style.display=F?"none":"";$("#cF").style.display=$("#hF").style.display=F?"":"none";$("#cB").style.display=F?"none":"";
+const L=$("#ln");L.innerHTML="";
+SPOTS[view].forEach(s=>{let tx=s.tx,ty=s.ty;if(s.el){const b=$(s.el).getBBox();tx=s.side==="L"?b.x-4:b.x+b.width+4;ty=b.y+b.height/2}
+ const bx=s.side==="L"?-22:322;
+ L.insertAdjacentHTML("beforeend",`<line id="ln${s.n}" x1="${bx}" y1="${s.by}" x2="${tx}" y2="${ty}" stroke="#ffb800" stroke-width="1.3" stroke-dasharray="3 2"/><circle cx="${tx}" cy="${ty}" r="3" fill="#ffb800" stroke="#0b1b3a"/>`);
+ const h=document.createElement("button");h.className="hs";h.textContent=s.n;h.setAttribute("aria-label",s.t);
+ h.style.left=((bx+40)/3.8)+"%";h.style.top=(s.by/4.5)+"%";
+ const show=()=>{$$(".hs").forEach(x=>x.classList.remove("on"));h.classList.add("on");$$("#ln line").forEach(l=>l.setAttribute("stroke-width",l.id==="ln"+s.n?"2.4":"1.3"));$("#info").innerHTML=`<b>${s.n}. ${s.t}</b><p>${s.d}</p>`};
+ h.onmouseenter=h.onclick=h.onfocus=show;$("#box").appendChild(h)})}
 $$(".tab").forEach(t=>t.onclick=()=>{$$(".tab").forEach(x=>x.classList.remove("on"));t.classList.add("on");view=t.dataset.v;draw()});
-paint();txt();draw();
+paint();txt();draw();document.fonts&&document.fonts.ready.then(()=>{txt();draw()});openPdf("catalog",1);openPdf("fonts",1);
 // form
 $("#f").onsubmit=async e=>{e.preventDefault();const d=Object.fromEntries(new FormData(e.target));
  try{if(FORM_ENDPOINT.includes("YOUR_ID"))throw 0;const r=await fetch(FORM_ENDPOINT,{method:"POST",headers:{"Accept":"application/json","Content-Type":"application/json"},body:JSON.stringify(d)});if(!r.ok)throw 0;$("#ok").style.display="block";e.target.reset()}
