@@ -54,12 +54,9 @@ input:focus,select:focus,textarea:focus{outline:0;border-color:var(--b2)}
 .chip{padding:9px 16px;border-radius:99px;border:1.5px solid var(--ln);background:#fff;font:700 13px Montserrat;cursor:pointer}.chip:hover,.chip.on{background:var(--b2);color:#fff;border-color:var(--b2)}
 .pdf{display:none;border:1px solid var(--ln);border-radius:18px;overflow:hidden;background:#fff}.pdf.show{display:block}
 .pdf iframe{width:100%;height:78vh;border:0}.row{display:flex;flex-wrap:wrap;gap:12px;margin-top:6px}
-.tw{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:18px}
-@media(max-width:640px){.tw{grid-template-columns:1fr}}
-.prev{background:#fff;border:1px solid var(--ln);border-radius:20px;padding:22px;text-align:center}
-.prev .big{font-size:84px;line-height:1;color:var(--b)}.prev .nm{font-size:30px;letter-spacing:3px;color:var(--b);margin-bottom:6px}
 form .grid{grid-template-columns:1fr 1fr}form .f{grid-column:1/-1}@media(max-width:640px){form .grid{grid-template-columns:1fr}}
 .ok{display:none;margin-top:14px;padding:14px;border-radius:12px;background:#e3f7ea;color:#0d6b33;font-weight:700}
+.err{display:none;margin-top:14px;padding:14px;border-radius:12px;background:#fde8e8;color:#9b1c1c;font-weight:700}
 footer{background:var(--ink);color:#c7d4ef;padding:36px 0;font-size:14px}footer .wrap{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between}
 </style>
 </head>
@@ -143,6 +140,7 @@ footer{background:var(--ink);color:#c7d4ef;padding:36px 0;font-size:14px}footer 
 
 <section id="fonts" class="alt"><div class="wrap">
  <h2>Шрифти для нанесення</h2><p class="lead">60 шрифтів: стилі збірних, клубів, ліг і класика з кирилицею. Запам'ятайте номер шрифту й вкажіть його в заявці.</p>
+ <div class="chips" id="fontChips"></div>
  <div class="row"><a class="btn" href="fonts.pdf" target="_blank" rel="noopener">Відкрити в новій вкладці</a><a class="btn o" href="fonts.pdf" download>Завантажити PDF</a></div>
  <div class="pdf" id="pdf-fonts" style="margin-top:20px"></div>
  <p class="note">Кирилицю (українські прізвища) підтримують шрифти №36–45 «Classic». Для решти уточнюйте у менеджера.</p>
@@ -152,14 +150,17 @@ footer{background:var(--ink);color:#c7d4ef;padding:36px 0;font-size:14px}footer 
  <h2>Заявка на розрахунок</h2><p class="lead">Залиште контакти та побажання — підготуємо комерційну пропозицію й візуалізацію.</p><div class="row" style="margin:-14px 0 24px"><a class="btn o" href="https://t.me/+380636014034" target="_blank" rel="noopener">Telegram</a><a class="btn o" href="https://wa.me/380636014034" target="_blank" rel="noopener">WhatsApp</a><a class="btn o" href="viber://chat?number=%2B380636014034">Viber</a></div>
  <form id="f" class="card"><div class="grid">
   <div><label>Назва команди *</label><input name="team" required placeholder="ФК «Вулкан»"></div>
-  <div><label>Контактна особа *</label><input name="name" required></div>
-  <div><label>Телефон / Telegram / Viber *</label><input name="contact" required></div>
+  <div><label>Контактна особа *</label><input name="name" required placeholder="Олександр"></div>
+  <div><label>Телефон / Telegram / Viber *</label><input name="contact" required placeholder="+380... або @username"></div>
   <div><label>Кількість комплектів</label><input name="qty" type="number" min="1" placeholder="15"></div>
-  <div><label>Номер шрифту (1–60)</label><input name="font" type="number" min="1" max="60"></div>
+  <div><label>Номер шрифту (1–60)</label><input name="font" type="number" min="1" max="60" placeholder="Наприклад: 10 або 36"></div>
   <div><label>Що наносимо</label><select name="print"><option>Номери + прізвища</option><option>Тільки номери</option><option>Логотип клубу</option><option>Логотип спонсора</option><option>Повний комплект нанесення</option></select></div>
-  <div class="f"><label>Коментар (моделі, кольори, терміни)</label><textarea name="msg" rows="3"></textarea></div>
-  <div class="f"><label>Файли логотипів зручно надіслати в Telegram/Instagram: вектор (.AI, .EPS, .PDF) або PNG від 300 DPI.</label><button class="btn" style="width:100%">Надіслати заявку</button></div>
- </div><div class="ok" id="ok">Дякуємо! Заявку отримано, ми зв'яжемось із вами.</div></form>
+  <div class="f"><label>Коментар (моделі, кольори, терміни)</label><textarea name="msg" rows="3" placeholder="Наприклад: Joma Combi синьо-біла, 15 комплектів..."></textarea></div>
+  <div class="f"><label>Файли логотипів зручно надіслати в Telegram/Instagram: вектор (.AI, .EPS, .PDF) або PNG від 300 DPI.</label><button id="submitBtn" class="btn" style="width:100%">Надіслати заявку</button></div>
+ </div>
+ <div class="ok" id="ok">Дякуємо! Заявку надіслано у Telegram, ми зв'яжемось із вами.</div>
+ <div class="err" id="err">Не вдалося надіслати заявку автоматично. Спробуйте ще раз або напишіть напряму у Telegram.</div>
+ </form>
 </div></section>
 
 <footer><div class="wrap"><div><b style="color:#fff">Joma Original</b><br>Офіційний дилер Joma в Україні<br><a href="tel:+380636014034">+38 (063) 601 40 34</a></div>
@@ -167,7 +168,7 @@ footer{background:var(--ink);color:#c7d4ef;padding:36px 0;font-size:14px}footer 
 
 <script>
 /* ===== НАЛАШТУВАННЯ — редагуйте тут ===== */
-const FORM_ENDPOINT="https://formspree.io/f/YOUR_ID"; // створіть безкоштовну форму на formspree.io
+const GAS_URL="https://script.google.com/macros/s/AKfycby2DOedyDAoRC95TRzoEdfAheHPauQQpIVOkbXtmGRnbUdm6w8SQs_2yFJyPL7C_fF_/exec";
 const TIERS=[ // ПРИКЛАД: замініть на ваші реальні умови
  {p:"15%",t:"Старт · 10–19 комплектів",d:"Для дитячих секцій і аматорських команд.",l:["Знижка на каталог","Візуалізація макета"]},
  {p:"25%",t:"Клуб · 20–49 комплектів",d:"Для академій і команд у регулярних чемпіонатах.",l:["Вища знижка","Персональний менеджер"],hl:1},
@@ -189,11 +190,14 @@ const SPOTS={
 /* ======================================== */
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
 $("#tiers").innerHTML=TIERS.map(x=>`<div class="card ${x.hl?'hl':''}"><div class="pct">−${x.p}</div><h3>${x.t}</h3><p style="color:var(--mut);font-size:14px">${x.d}</p><ul>${x.l.map(i=>`<li>${i}</li>`).join("")}</ul></div>`).join("");
+
 // chips
-const mk=(id,arr,f)=>$(id).innerHTML=arr.map(a=>`<button class="chip" data-f="${f}" data-p="${a[1]}">${a[0]}</button>`).join("");
+const mk=(id,arr,f)=>$(id).innerHTML=arr.map((a,idx)=>`<button type="button" class="chip ${idx===0?'on':''}" data-f="${f}" data-p="${a[1]}">${a[0]}</button>`).join("");
 mk("#catChips",CAT,"catalog");
+mk("#fontChips",FNT,"fonts");
 document.addEventListener("click",e=>{const c=e.target.closest(".chip");if(c){$$(`.chip[data-f="${c.dataset.f}"]`).forEach(x=>x.classList.remove("on"));c.classList.add("on");openPdf(c.dataset.f,c.dataset.p)}});
 function openPdf(f,p){const box=$("#pdf-"+f);box.classList.add("show");const i=document.createElement("iframe");i.title=f;i.loading="lazy";i.src=f+".pdf#page="+(p||1)+"&view=FitH&navpanes=0&pagemode=none";box.replaceChildren(i)}
+
 // builder
 let view="front";const col={"#1668e3":"#fff","#ffffff":"#0a3d9c","#d62839":"#fff","#ffcc00":"#0b1b3a","#111827":"#fff","#1fa35b":"#fff"};
 $("#sw").innerHTML=Object.keys(col).map((c,i)=>`<i style="background:${c}" data-c="${c}" class="${i?'':'on'}"></i>`).join("");
@@ -208,16 +212,46 @@ const L=$("#ln");L.innerHTML="";
 SPOTS[view].forEach(s=>{let tx=s.tx,ty=s.ty;if(s.el){const b=$(s.el).getBBox();tx=s.side==="L"?b.x-4:b.x+b.width+4;ty=b.y+b.height/2}
  const bx=s.side==="L"?-22:322;
  L.insertAdjacentHTML("beforeend",`<line id="ln${s.n}" x1="${bx}" y1="${s.by}" x2="${tx}" y2="${ty}" stroke="#ffb800" stroke-width="1.3" stroke-dasharray="3 2"/><circle cx="${tx}" cy="${ty}" r="3" fill="#ffb800" stroke="#0b1b3a"/>`);
- const h=document.createElement("button");h.className="hs";h.textContent=s.n;h.setAttribute("aria-label",s.t);
+ const h=document.createElement("button");h.type="button";h.className="hs";h.textContent=s.n;h.setAttribute("aria-label",s.t);
  h.style.left=((bx+40)/3.8)+"%";h.style.top=(s.by/4.5)+"%";
  const show=()=>{$$(".hs").forEach(x=>x.classList.remove("on"));h.classList.add("on");$$("#ln line").forEach(l=>l.setAttribute("stroke-width",l.id==="ln"+s.n?"2.4":"1.3"));$("#info").innerHTML=`<b>${s.n}. ${s.t}</b><p>${s.d}</p>`};
  h.onmouseenter=h.onclick=h.onfocus=show;$("#box").appendChild(h)})}
 $$(".tab").forEach(t=>t.onclick=()=>{$$(".tab").forEach(x=>x.classList.remove("on"));t.classList.add("on");view=t.dataset.v;draw()});
-paint();txt();draw();document.fonts&&document.fonts.ready.then(()=>{txt();draw()});openPdf("catalog",1);openPdf("fonts",1);
-// form
-$("#f").onsubmit=async e=>{e.preventDefault();const d=Object.fromEntries(new FormData(e.target));
- try{if(FORM_ENDPOINT.includes("YOUR_ID"))throw 0;const r=await fetch(FORM_ENDPOINT,{method:"POST",headers:{"Accept":"application/json","Content-Type":"application/json"},body:JSON.stringify(d)});if(!r.ok)throw 0;$("#ok").style.display="block";e.target.reset()}
- catch{const m=`Заявка Joma Original\nКоманда: ${d.team}\nКонтакт: ${d.name}, ${d.contact}\nКомплектів: ${d.qty}\nШрифт №: ${d.font}\nНанесення: ${d.print}\n${d.msg}`;try{await navigator.clipboard.writeText(m)}catch{}alert("Текст заявки скопійовано. Вставте його в чат Telegram, який зараз відкриється.");window.open("https://t.me/+380636014034","_blank")}};
+paint();txt();draw();document.fonts&&document.fonts.ready.then(()=>{txt();draw()});openPdf("catalog",2);openPdf("fonts",10);
+
+// form -> Google Apps Script -> Telegram
+$("#f").onsubmit=async e=>{
+ e.preventDefault();
+ const d=Object.fromEntries(new FormData(e.target));
+ const btn=$("#submitBtn"),ok=$("#ok"),err=$("#err");
+ ok.style.display="none";err.style.display="none";
+ const message=[
+  "Нова заявка на командне замовлення (Joma Original):",
+  "Команда: "+(d.team||"-"),
+  "Контактна особа: "+(d.name||"-"),
+  "Телефон / Месенджер: "+(d.contact||"-"),
+  "Кількість комплектів: "+(d.qty||"-"),
+  "Номер шрифту: "+(d.font||"-"),
+  "Що наносимо: "+(d.print||"-"),
+  "Коментар: "+(d.msg||"-")
+ ].join("\n");
+
+ btn.disabled=true;btn.textContent="Надсилаємо...";
+ try{
+  await fetch(GAS_URL,{
+   method:"POST",
+   mode:"no-cors",
+   headers:{"Content-Type":"application/json"},
+   body:JSON.stringify({message:message,...d})
+  });
+  ok.style.display="block";
+  e.target.reset();
+ }catch(ex){
+  err.style.display="block";
+ }finally{
+  btn.disabled=false;btn.textContent="Надіслати заявку";
+ }
+};
 </script>
 </body>
 </html>
