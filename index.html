@@ -67,14 +67,14 @@ footer{background:var(--ink);color:#c7d4ef;padding:36px 0;font-size:14px}footer 
 <header><div class="wrap">
  <a href="#" class="logo">joma<small>ORIGINAL · UKRAINE</small></a>
  <nav><a href="#terms">Умови</a><a href="#builder">Конструктор</a><a href="#catalog">Каталог</a><a href="#fonts">Шрифти</a><a href="#order">Заявка</a></nav>
- <a href="#order" class="btn" style="padding:10px 18px;font-size:13px">Розрахунок</a>
+ <a href="tel:+380636014034" class="btn" style="padding:10px 18px;font-size:13px">+38 (063) 601 40 34</a>
 </div></header>
 
 <div class="hero"><div class="wrap">
  <h1>Командна екіпіровка Joma з вашим нанесенням</h1>
  <p>Форма, гетри, костюми та аксесуари для команд, академій і клубів. Номери, прізвища, логотипи й спонсори — під ключ.</p>
  <a href="#order" class="btn">Отримати розрахунок</a> <a href="#builder" class="btn o">Подивитись нанесення</a>
- <div class="stats"><div><b>74 тис.</b><span>підписників в Instagram</span></div><div><b>60</b><span>шрифтів для нанесення</span></div><div><b>від 1 дня</b><span>термін нанесення*</span></div></div>
+ <div class="stats"><div><b>74 тис.</b><span>підписників в Instagram</span></div><div><b>60</b><span>шрифтів для нанесення</span></div><div><b>від 1 дня</b><span>термін нанесення</span></div></div>
 </div></div>
 
 <section id="terms"><div class="wrap">
@@ -87,18 +87,38 @@ footer{background:var(--ink);color:#c7d4ef;padding:36px 0;font-size:14px}footer 
  <div class="bld">
   <div><div class="tabs"><button class="tab on" data-v="front">Спереду</button><button class="tab" data-v="back">Ззаду</button></div>
    <div class="stage" id="stage">
-    <svg viewBox="0 0 300 450" id="kit">
-     <g id="shirt" stroke="#0b1b3a" stroke-opacity=".15" stroke-width="2">
-      <path id="body" d="M92 14 L38 44 L8 118 L54 140 L70 108 L70 318 L230 318 L230 108 L246 140 L292 118 L262 44 L208 14 Q150 56 92 14Z" fill="#1668e3"/>
-      <path id="collar" d="M92 14 Q150 56 208 14 Q150 80 92 14Z" fill="#fff" fill-opacity=".9"/>
-      <path d="M54 140 L70 108 M246 140 L230 108" stroke="#fff" stroke-opacity=".35"/>
-     </g>
-     <g id="frontG"><path d="M118 62 l14 -8 h8 l-6 9 q-12 8 -16 22 q-6 -4 0 -23z" fill="#fff" opacity=".95" transform="translate(30 6) scale(.55)"/></g>
-     <g id="frontT" text-anchor="middle"><text id="spT" x="150" y="130" font-size="15" font-weight="800" font-family="Montserrat"></text></g>
-     <g id="backT" text-anchor="middle" style="display:none"><text id="nmT" x="150" y="76" font-size="22" font-family="Oswald"></text><text id="nuT" x="150" y="190" font-size="110" font-family="Oswald"></text></g>
-     <path id="shorts" d="M82 330 H218 L232 440 H160 L150 390 L140 440 H68 Z" fill="#0a3d9c" stroke="#0b1b3a" stroke-opacity=".15" stroke-width="2"/>
-     <text id="shN" x="95" y="400" text-anchor="middle" font-size="26" font-family="Oswald" fill="#fff">7</text>
-    </svg>
+    <div id="box" style="position:relative"><svg viewBox="0 0 300 450" id="kit" style="color:#fff">
+<defs>
+<path id="bp" d="M108 16 L42 40 Q22 50 8 112 L50 134 Q60 112 70 100 L72 322 Q150 332 228 322 L230 100 Q240 112 250 134 L292 112 Q278 50 258 40 L192 16 Q150 52 108 16Z"/>
+<path id="sp" d="M78 312 H222 L240 438 Q202 448 166 436 L150 382 L134 436 Q98 448 60 438Z"/>
+<clipPath id="cl"><use href="#bp"/></clipPath><clipPath id="cs"><use href="#sp"/></clipPath>
+<linearGradient id="sh" x1="0" x2="1"><stop offset="0" stop-color="#000" stop-opacity=".38"/><stop offset=".18" stop-color="#000" stop-opacity=".04"/><stop offset=".5" stop-color="#fff" stop-opacity=".13"/><stop offset=".82" stop-color="#000" stop-opacity=".08"/><stop offset="1" stop-color="#000" stop-opacity=".42"/></linearGradient>
+<linearGradient id="sv" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".2"/><stop offset=".6" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".3"/></linearGradient>
+<filter id="tex" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency=".95" numOctaves="2" seed="4"/><feColorMatrix type="saturate" values="0"/></filter>
+<filter id="bl"><feGaussianBlur stdDeviation="4"/></filter>
+<filter id="ds"><feDropShadow dx="0" dy="5" stdDeviation="6" flood-color="#0b1b3a" flood-opacity=".3"/></filter>
+</defs>
+<ellipse cx="150" cy="445" rx="100" ry="5" fill="#0b1b3a" opacity=".18" filter="url(#bl)"/>
+<g filter="url(#ds)"><use id="sf" href="#sp" fill="#1668e3"/><use href="#bp" fill="none"/></g>
+<use href="#sp" fill="url(#sh)"/><use href="#sp" fill="url(#sv)"/>
+<g clip-path="url(#cs)" style="mix-blend-mode:multiply" opacity=".3"><rect width="300" height="450" filter="url(#tex)"/></g>
+<g clip-path="url(#cs)" filter="url(#bl)" opacity=".3"><path d="M150 330 L150 440 L158 440 L158 330Z" fill="#000"/></g>
+<path d="M78 312 H222 L224 327 Q150 336 76 327Z" fill="#000" opacity=".16"/><path d="M142 330 v22 M158 330 v22" stroke="#fff" stroke-opacity=".7" stroke-width="2" stroke-linecap="round"/>
+<g filter="url(#ds)"><use id="body" href="#bp" fill="#1668e3"/></g>
+<use href="#bp" fill="url(#sh)"/><use href="#bp" fill="url(#sv)"/>
+<g clip-path="url(#cl)" style="mix-blend-mode:multiply" opacity=".3"><rect width="300" height="340" filter="url(#tex)"/></g>
+<g clip-path="url(#cl)" filter="url(#bl)" opacity=".22"><path d="M72 120 Q92 200 78 322 L96 322 Q112 200 90 110Z"/><path d="M228 120 Q208 200 222 322 L204 322 Q188 200 210 110Z"/><path d="M104 262 Q150 282 196 262 L196 310 Q150 290 104 310Z"/><path d="M60 108 Q40 122 20 108 L40 86Z"/><path d="M240 108 Q260 122 280 108 L260 86Z"/></g>
+<g clip-path="url(#cl)" filter="url(#bl)" opacity=".16" fill="#fff"><path d="M118 80 Q150 104 182 80 L176 200 Q150 214 124 200Z"/></g>
+<g fill="none" stroke="#fff" stroke-opacity=".3" stroke-width=".9" stroke-dasharray="2.2 1.6"><path d="M58 38 Q76 70 70 100"/><path d="M242 38 Q224 70 230 100"/><path d="M73 312 Q150 322 227 312"/><path d="M13 102 L55 124"/><path d="M287 102 L245 124"/></g>
+<g transform="translate(262 80) rotate(22)"><rect width="14" height="5" fill="#0057b7"/><rect y="5" width="14" height="5" fill="#ffd700"/></g>
+<path d="M112 14 Q150 50 188 14 Q150 24 112 14Z" fill="#0b1b3a" opacity=".6" id="hF"/>
+<g id="cF" fill="none" stroke-linecap="round"><path d="M109 16 Q150 55 191 16" stroke="currentColor" stroke-width="7"/><path d="M114 21 Q150 50 186 21" stroke="#000" stroke-opacity=".22" stroke-width="1.6"/></g>
+<g id="cB" style="display:none" fill="none" stroke-linecap="round"><path d="M118 15 Q150 30 182 15 Q150 22 118 15Z" fill="#0b1b3a" fill-opacity=".6"/><path d="M109 16 Q150 34 191 16" stroke="currentColor" stroke-width="7"/><path d="M116 20 Q150 36 184 20" stroke="#000" stroke-opacity=".22" stroke-width="1.6"/></g>
+<g id="frontG" fill="currentColor"><path transform="translate(104 66)" d="M-9 0 L10 -8 Q7 4 -4 9 Q-12 13 -17 9 L-9 5 Q-3 4 0 -1Z"/><path d="M180 55 h20 v14 q0 9 -10 13 q-10 -4 -10 -13z" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="190" cy="66" r="3.5"/></g>
+<g id="frontT" text-anchor="middle" fill="currentColor"><text id="spT" x="150" y="124" font-size="13" font-weight="800" font-family="Montserrat"></text></g>
+<g id="backT" text-anchor="middle" fill="currentColor" style="display:none"><text x="150" y="54" font-size="10" font-weight="800" letter-spacing="2" font-family="Montserrat">СЛАВА УКРАЇНІ</text><text id="nmT" x="150" y="86" font-size="22" font-family="Oswald"></text><text id="nuT" x="150" y="196" font-size="112" font-family="Oswald"></text></g>
+<text id="shN" x="200" y="402" text-anchor="middle" font-size="24" font-family="Oswald" fill="currentColor">7</text>
+</svg></div>
    </div></div>
   <div>
    <div class="info" id="info"><b>Наведіть на точку</b><p>Тут з'явиться опис місця нанесення.</p></div>
@@ -115,7 +135,7 @@ footer{background:var(--ink);color:#c7d4ef;padding:36px 0;font-size:14px}footer 
 </div></section>
 
 <section id="catalog"><div class="wrap">
- <h2>Каталог Joma Teamwear 2024</h2><p class="lead">Обирайте розділ — каталог відкриється на потрібній сторінці. Артикули та кольори вказані під кожною моделлю.</p>
+ <h2>Каталог Joma Teamwear 2026</h2><p class="lead">Обирайте розділ — каталог відкриється на потрібній сторінці. Артикули та кольори вказані під кожною моделлю.</p>
  <div class="chips" id="catChips"></div>
  <div class="row"><button class="btn" onclick="openPdf('catalog')">Переглянути на сайті</button><a class="btn o" href="catalog.pdf" download>Завантажити PDF</a></div>
  <div class="pdf" id="pdf-catalog" style="margin-top:20px"><iframe title="Каталог Joma" loading="lazy"></iframe></div>
@@ -130,7 +150,7 @@ footer{background:var(--ink);color:#c7d4ef;padding:36px 0;font-size:14px}footer 
 </div></section>
 
 <section id="order"><div class="wrap" style="max-width:760px">
- <h2>Заявка на розрахунок</h2><p class="lead">Залиште контакти та побажання — підготуємо комерційну пропозицію й візуалізацію.</p>
+ <h2>Заявка на розрахунок</h2><p class="lead">Залиште контакти та побажання — підготуємо комерційну пропозицію й візуалізацію.</p><div class="row" style="margin:-14px 0 24px"><a class="btn o" href="https://t.me/+380636014034" target="_blank" rel="noopener">Telegram</a><a class="btn o" href="https://wa.me/380636014034" target="_blank" rel="noopener">WhatsApp</a><a class="btn o" href="viber://chat?number=%2B380636014034">Viber</a></div>
  <form id="f" class="card"><div class="grid">
   <div><label>Назва команди *</label><input name="team" required placeholder="ФК «Вулкан»"></div>
   <div><label>Контактна особа *</label><input name="name" required></div>
@@ -143,7 +163,7 @@ footer{background:var(--ink);color:#c7d4ef;padding:36px 0;font-size:14px}footer 
  </div><div class="ok" id="ok">Дякуємо! Заявку отримано, ми зв'яжемось із вами.</div></form>
 </div></section>
 
-<footer><div class="wrap"><div><b style="color:#fff">Joma Original</b><br>Офіційний представник Joma в Україні</div>
+<footer><div class="wrap"><div><b style="color:#fff">Joma Original</b><br>Офіційний дилер Joma в Україні<br><a href="tel:+380636014034">+38 (063) 601 40 34</a></div>
  <div><a href="https://instagram.com/joma_original" target="_blank" rel="noopener">Instagram @joma_original</a><br>© 2026 Joma Original</div></div></footer>
 
 <script>
@@ -157,15 +177,15 @@ const CAT=[["Ігрова форма",2],["Гетри та воротарі",7],
 const FNT=[["NEW 2025",10],["NEW 2024",1],["Збірні",3],["Клуби",5],["Бренди / ліги",7],["Classic (кирилиця)",8],["Фото робіт",13]];
 const SPOTS={
  front:[
-  {n:1,x:68,y:25,t:"Логотип клубу",d:"Термотрансфер або шеврон на лівій стороні грудей. Повний колір, висока деталізація."},
-  {n:2,x:50,y:34,t:"Спонсор на грудях",d:"Центр грудей: монохром або повний колір, розмір за погодженням."},
-  {n:3,x:90,y:25,t:"Рукав",d:"Малий логотип, прапор чи ініціали на рукаві."},
-  {n:4,x:30,y:100,t:"Номер на шортах",d:"Номер гравця на лівій штанині шортів.",short:1}],
+  {n:1,x:190,y:66,t:"Логотип клубу",d:"Термотрансфер або шеврон на грудях. Повний колір, висока деталізація."},
+  {n:2,x:150,y:120,t:"Спонсор на грудях",d:"Центр грудей: монохром або повний колір, розмір за погодженням."},
+  {n:3,x:271,y:88,t:"Рукав",d:"Малий логотип, прапор чи ініціали на рукаві."},
+  {n:4,x:200,y:398,t:"Номер на шортах",d:"Номер гравця на штанині шортів."}],
  back:[
-  {n:1,x:50,y:17,t:"Прізвище",d:"Над номером. Кирилиця та латиниця — залежно від обраного шрифту."},
-  {n:2,x:50,y:40,t:"Великий номер",d:"Головний елемент нанесення. Шрифт обирайте у каталозі (1–60)."},
-  {n:3,x:50,y:8,t:"Напис над прізвищем",d:"Назва клубу, девіз або «Слава Україні» над прізвищем."},
-  {n:4,x:30,y:100,t:"Номер на шортах",d:"Номер гравця на лівій штанині шортів.",short:1}]
+  {n:1,x:150,y:50,t:"Напис над прізвищем",d:"Назва клубу, девіз або «Слава Україні» над прізвищем."},
+  {n:2,x:150,y:82,t:"Прізвище",d:"Кирилиця та латиниця — залежно від обраного шрифту."},
+  {n:3,x:150,y:150,t:"Великий номер",d:"Головний елемент нанесення. Шрифт обирайте у каталозі (1–60)."},
+  {n:4,x:200,y:398,t:"Номер на шортах",d:"Номер гравця на штанині шортів."}]
 };
 /* ======================================== */
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
@@ -179,22 +199,21 @@ function openPdf(f,p){const box=$("#pdf-"+f);box.classList.add("show");box.query
 let view="front";const col={"#1668e3":"#fff","#ffffff":"#0a3d9c","#d62839":"#fff","#ffcc00":"#0b1b3a","#111827":"#fff","#1fa35b":"#fff"};
 $("#sw").innerHTML=Object.keys(col).map((c,i)=>`<i style="background:${c}" data-c="${c}" class="${i?'':'on'}"></i>`).join("");
 let ink="#fff";
-function paint(){const b=$("#body");$("#kit").querySelectorAll("#frontT text,#backT text,#shN").forEach(t=>t.setAttribute("fill",ink));$("#collar").setAttribute("fill",ink==="#fff"?"#fff":"#0b1b3a")}
-$("#sw").onclick=e=>{const c=e.target.dataset.c;if(!c)return;$$("#sw i").forEach(i=>i.classList.remove("on"));e.target.classList.add("on");$("#body").setAttribute("fill",c);ink=col[c];paint()};
+function paint(){$("#kit").style.color=ink}
+$("#sw").onclick=e=>{const c=e.target.dataset.c;if(!c)return;$$("#sw i").forEach(i=>i.classList.remove("on"));e.target.classList.add("on");$("#body").setAttribute("fill",c);$("#sf").setAttribute("fill",c);ink=col[c];paint()};
 function txt(){const f=$("#inFont").value;$("#nmT").textContent=$("#inName").value.toUpperCase();$("#nuT").textContent=$("#inNum").value;$("#shN").textContent=$("#inNum").value;$("#spT").textContent=$("#inSp").value.toUpperCase();["#nmT","#nuT","#shN"].forEach(s=>$(s).style.fontFamily=`'${f}',sans-serif`);const n=$("#nmT");n.setAttribute("font-size",Math.max(12,Math.min(24,200/Math.max(6,n.textContent.length)*1.7)))}
 ["#inName","#inNum","#inSp","#inFont"].forEach(s=>$(s).addEventListener("input",txt));
-function draw(){$$(".hs").forEach(h=>h.remove());$("#frontG").style.display=$("#frontT").style.display=view==="front"?"":"none";$("#backT").style.display=view==="back"?"":"none";
+function draw(){$$(".hs").forEach(h=>h.remove());$("#frontG").style.display=$("#frontT").style.display=view==="front"?"":"none";$("#backT").style.display=view==="back"?"":"none";$("#cF").style.display=$("#hF").style.display=view==="front"?"":"none";$("#cB").style.display=view==="back"?"":"none";
  SPOTS[view].forEach(s=>{const h=document.createElement("button");h.className="hs";h.textContent=s.n;h.setAttribute("aria-label",s.t);
-  h.style.left=s.x+"%";h.style.top=(s.short?s.y*0.0+ (330+ (440-330)*.35)/450*100:s.y*(318/450)*1.0)+"%";
-  if(s.short)h.style.top="86%";else h.style.top=(s.y*0.7)+"%";
+  h.style.left=(s.x/3)+"%";h.style.top=(s.y/4.5)+"%";
   const show=()=>{$$(".hs").forEach(x=>x.classList.remove("on"));h.classList.add("on");$("#info").innerHTML=`<b>${s.n}. ${s.t}</b><p>${s.d}</p>`};
-  h.onmouseenter=h.onclick=h.onfocus=show;$("#stage").appendChild(h)})}
+  h.onmouseenter=h.onclick=h.onfocus=show;$("#box").appendChild(h)})}
 $$(".tab").forEach(t=>t.onclick=()=>{$$(".tab").forEach(x=>x.classList.remove("on"));t.classList.add("on");view=t.dataset.v;draw()});
 paint();txt();draw();
 // form
 $("#f").onsubmit=async e=>{e.preventDefault();const d=Object.fromEntries(new FormData(e.target));
  try{if(FORM_ENDPOINT.includes("YOUR_ID"))throw 0;const r=await fetch(FORM_ENDPOINT,{method:"POST",headers:{"Accept":"application/json","Content-Type":"application/json"},body:JSON.stringify(d)});if(!r.ok)throw 0;$("#ok").style.display="block";e.target.reset()}
- catch{const m=`Заявка Joma Original%0AКоманда: ${d.team}%0AКонтакт: ${d.name}, ${d.contact}%0AКомплектів: ${d.qty}%0AШрифт №: ${d.font}%0AНанесення: ${d.print}%0A${d.msg}`;window.open("https://t.me/share/url?url=%20&text="+m,"_blank")}};
+ catch{const m=`Заявка Joma Original\nКоманда: ${d.team}\nКонтакт: ${d.name}, ${d.contact}\nКомплектів: ${d.qty}\nШрифт №: ${d.font}\nНанесення: ${d.print}\n${d.msg}`;try{await navigator.clipboard.writeText(m)}catch{}alert("Текст заявки скопійовано. Вставте його в чат Telegram, який зараз відкриється.");window.open("https://t.me/+380636014034","_blank")}};
 </script>
 </body>
 </html>
